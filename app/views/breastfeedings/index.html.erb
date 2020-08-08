@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Breastfeedings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Duration</th>
+      <th>Baby</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @breastfeedings.each do |breastfeeding| %>
+      <tr>
+        <td><%= breastfeeding.quantity %></td>
+        <td><%= breastfeeding.duration %></td>
+        <td><%= breastfeeding.baby %></td>
+        <td><%= link_to 'Show', breastfeeding %></td>
+        <td><%= link_to 'Edit', edit_breastfeeding_path(breastfeeding) %></td>
+        <td><%= link_to 'Destroy', breastfeeding, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Breastfeeding', new_breastfeeding_path %>

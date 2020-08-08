@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @baby.name %>
+</p>
+
+<ul>
+<% @baby.breastfeedings.each do |bf| %>
+  <li><%= bf.quantity %></li>
+<% end %>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Times drinking</th>
+      <th>Date last drinking</th>
+      <th>How much time has drunk</th>
+      <th>How much quantity has drunk today</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @baby.breast_feeding_times_today %></td>
+        <td><%= @baby.last_time %></td>
+        <td><%= @baby.breast_feeding_duration_today %></td>
+        <td><%= @baby.breast_feeding_quantity_today %></td>
+      </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_baby_path(@baby) %> |
+<%= link_to 'Back', babies_path %>
